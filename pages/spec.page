@@ -1,0 +1,42 @@
+<apex:page showHeader="false" docType="html-5.0">
+    <html>
+        <head>
+            <title>salesforce-metadata.js spec</title>
+            <link rel="stylesheet" href="{!URLFOR($Resource.jasmine_120, 'jasmine-1.2.0/jasmine.css')}" />
+            <script>
+                __sfdcSessionId = "{!$API.Session_ID}";
+            </script>
+            <script src="/soap/ajax/25.0/connection.js" ></script>
+            <script src="{!URLFOR($Resource.metadatajs)}" ></script>
+            <script src="{!URLFOR($Resource.JSZip, 'JSZip/jszip.js')}" ></script>
+            <script src="{!URLFOR($Resource.JSZip, 'JSZip/jszip-load.js')}" ></script>
+            <script src="{!URLFOR($Resource.JSZip, 'JSZip/jszip-inflate.js')}" ></script>
+            <script src="{!URLFOR($Resource.JSZip, 'JSZip/jszip-deflate.js')}" ></script>
+            <script src="{!URLFOR($Resource.jasmine_120, 'jasmine-1.2.0/jasmine.js')}"></script>
+            <script src="{!URLFOR($Resource.jasmine_120, 'jasmine-1.2.0/jasmine-html.js')}"></script>
+            <script src="{!URLFOR($Resource.specjs)}" ></script>
+            <script>
+                (function () {
+                    var jasmineEnv = jasmine.getEnv();
+                    jasmineEnv.updateInterval = 250;
+                    var htmlReporter = new jasmine.HtmlReporter();
+                    jasmineEnv.addReporter(htmlReporter);
+                    jasmineEnv.specFilter = function(spec) {
+                        return htmlReporter.specFilter(spec);
+                    };
+                    var currentWindowOnload = window.onload;
+                    window.onload = function() {
+                        if (currentWindowOnload) {
+                            currentWindowOnload();
+                        }
+                        execJasmine();
+                    };
+                    function execJasmine() {
+                        jasmineEnv.execute();
+                    }
+                }());
+            </script>
+        </head>
+        <body></body>
+    </html>
+</apex:page>
