@@ -8,14 +8,14 @@ salesforce-metadata.js is a library for accessing Salesforce Metadata API from a
 
 ### dependency
 Salesforce.com AJAX Connector  (AJAX Toolkit)
-[https://login.salesforce.com/soap/ajax/25.0/connection.js](https://login.salesforce.com/soap/ajax/25.0/connection.js)
+[https://login.salesforce.com/soap/ajax/26.0/connection.js](https://login.salesforce.com/soap/ajax/26.0/connection.js)
 
 
 ### usage
     <script type="text/javascript">
         __sfdcSessionId = "{!$API.Session_ID}";
     </script>
-    <script type="text/javascript" src="/soap/ajax/25.0/connection.js"></script>
+    <script type="text/javascript" src="/soap/ajax/26.0/connection.js"></script>
     <script type="text/javascript" src="{!URLFOR($Resource.metadatajs)}"></script>
 
 
@@ -30,7 +30,7 @@ Salesforce.com AJAX Connector  (AJAX Toolkit)
 
 #### listMetadata
     sforce.metadata.listMetadata(
-        {queries: [{type: 'ApexPage'}, {type: 'Layout'}], asOfVersion: 25},
+        {queries: [{type: 'ApexPage'}, {type: 'Layout'}], asOfVersion: 26},
         function (results) {
             console.log(results);
         }
@@ -107,7 +107,7 @@ For example, [JSZip](http://stuartk.com/jszip/) or [zip.js](http://gildas-lormea
     }
     var req, result;
     req = new sforce.RetrieveRequest();
-    req.apiVersion = "25.0";
+    req.apiVersion = "26.0";
     req.singlePackage = false;
     req.unpackaged = {
         types: [{name: "ApexPage", members:["spec"]}]
@@ -159,10 +159,10 @@ For example, [JSZip](http://stuartk.com/jszip/) or [zip.js](http://gildas-lormea
     var req, meta, package, b64, zipArchive;
     body = "public class MyClass{}";
     meta = new sforce.MetaXml("ApexClass");
-    meta.apiVersion = 25;
+    meta.apiVersion = 26;
     meta.status = "Active";
     package = new sforce.Package();
-    package.version = 25;
+    package.version = 26;
     package.types = [
         {name: "ApexClass", members: ["MyClass"]}
     ];
