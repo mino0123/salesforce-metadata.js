@@ -119,7 +119,7 @@ For example, [JSZip](http://stuartk.com/jszip/) or [zip.js](http://gildas-lormea
     }));
 ###### Unzip retrieve result with [JSZip](http://stuartk.com/jszip/)
     zip = new JSZip(result.zipFile, {base64:true});
-    console.log(zip.file("unpackaged/pages/MyPage.page").data);
+    console.log(zip.file("unpackaged/pages/MyPage.page").asText());
 ###### Unzip retrieve result with [zip.js](http://gildas-lormeau.github.com/zip.js/)
     zip.useWebWorkers = false;
     
