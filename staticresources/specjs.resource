@@ -94,7 +94,7 @@ describe("sforce.metadata", function () {
     describe("package.xml Serialize", function () {
         var xml = sforce.Package.toXml({
             types: [{name: "ApexClass", members: ["Class1", "Class2"]}],
-            version: 25
+            version: 26
         });
         it("contains type name", function () {
             expect(xml).toContain("ApexClass");
@@ -107,16 +107,16 @@ describe("sforce.metadata", function () {
         });
         it("contains version", function () {
             expect(xml).toContain("version");
-            expect(xml).toContain("25");
+            expect(xml).toContain("26");
         });
     });
 
     describe("Utility API", function () {
-        describe("describeMetadata(25)", function () {
+        describe("describeMetadata(26)", function () {
             var dr;
             beforeEach(function () {
                 if (!dr) {
-                    dr = sforce.metadata.describeMetadata(25);
+                    dr = sforce.metadata.describeMetadata(26);
                 }
             });
             it("method returns a value", function () {
@@ -137,12 +137,12 @@ describe("sforce.metadata", function () {
             });
         });
 
-        describe("listMetadata({queries: [{type: 'ApexPage'}, {type: 'Layout'}], asOfVersion: 25})", function () {
+        describe("listMetadata({queries: [{type: 'ApexPage'}, {type: 'Layout'}], asOfVersion: 26})", function () {
             var results;
             beforeEach(function () {
                 if (!results) {
                     results = sforce.metadata.listMetadata(
-                        {queries: [{type: 'ApexPage'}, {type: 'Layout'}], asOfVersion: 25}
+                        {queries: [{type: 'ApexPage'}, {type: 'Layout'}], asOfVersion: 26}
                         );
                 }
             });
@@ -229,7 +229,7 @@ describe("sforce.metadata", function () {
             page = new sforce.Metadata("ApexPage");
             page.fullName = TEST_NAME;
             page.label = TEST_NAME;
-            page.apiVersion = 25;
+            page.apiVersion = 26;
             page.content = new sforce.Base64Binary("<apex:page></apex:page>");
 
             it("is creatable", function () {
@@ -263,7 +263,7 @@ describe("sforce.metadata", function () {
             component = new sforce.Metadata("ApexComponent");
             component.fullName = TEST_NAME;
             component.label = TEST_NAME;
-            component.apiVersion = 25;
+            component.apiVersion = 26;
             component.content = new sforce.Base64Binary("<apex:component ></apex:component>");
             it("is creatable", function () {
                 var qr;
@@ -396,11 +396,11 @@ describe("sforce.metadata", function () {
             it("deleteable (Deploy)", function () {
                 var req, pack, destructiveChanges;
                 pack = sforce.Package.toXml({
-                    types: [], version: 25
+                    types: [], version: 26
                 });
                 destructiveChanges = sforce.Package.toXml({
                     types: [{members:[objName], name:"CustomObject"}],
-                    version: 25
+                    version: 26
                 });
                 files = [
                     {name: "src", dir:[
@@ -882,7 +882,7 @@ describe("sforce.metadata", function () {
         describe("retrieve", function () {
             var req, result;
             req = new sforce.RetrieveRequest();
-            req.apiVersion = "25.0";
+            req.apiVersion = "26.0";
             req.singlePackage = false;
             req.unpackaged = {
                 types: [{name: "ApexPage", members:["spec"]}]
@@ -912,12 +912,12 @@ describe("sforce.metadata", function () {
                 singlePackage    : true
             };
             pack = new sforce.Package();
-            pack.version = 25;
+            pack.version = 26;
             pack.types = [
                 {name: "ApexClass", members: ["MetadataJSTest"]}
             ];
             meta = new sforce.MetaXml("ApexClass");
-            meta.apiVersion = 25;
+            meta.apiVersion = 26;
             meta.status = "Active";
             zip = new JSZip();
             zip.file("src/package.xml", pack.toXml());
@@ -934,7 +934,7 @@ describe("sforce.metadata", function () {
             var req, pack;
             req = new sforce.DeployRequest();
             pack = new sforce.Package();
-            pack.version = 25;
+            pack.version = 26;
             zip = new JSZip();
             zip.file("src/package.xml", pack.toXml());
             pack.types = [{name: "ApexClass", members: ["MetadataJSTest"]}];
