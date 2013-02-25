@@ -324,7 +324,7 @@ https://github.com/mino0123/salesforce-metadata.js/LICENSE
 
 
     sforce.metadata = new sforce.MetadataConnection();
-    sforce.metadata.serverUrl = "/services/Soap/m/26.0";
+    sforce.metadata.serverUrl = "/services/Soap/m/27.0";
     sforce.metadata.sessionId = sforce.connection.sessionId;
 
 

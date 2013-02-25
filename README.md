@@ -4,18 +4,18 @@
 
 ---
 
-salesforce-metadata.js is a library for accessing Salesforce Metadata API from a web browser. 
+salesforce-metadata.js is a library for accessing Salesforce Metadata API from a web browser.
 
 ### dependency
 Salesforce.com AJAX Connector  (AJAX Toolkit)
-[https://login.salesforce.com/soap/ajax/26.0/connection.js](https://login.salesforce.com/soap/ajax/26.0/connection.js)
+[https://login.salesforce.com/soap/ajax/27.0/connection.js](https://login.salesforce.com/soap/ajax/27.0/connection.js)
 
 
 ### usage
     <script type="text/javascript">
         __sfdcSessionId = "{!$API.Session_ID}";
     </script>
-    <script type="text/javascript" src="/soap/ajax/26.0/connection.js"></script>
+    <script type="text/javascript" src="/soap/ajax/27.0/connection.js"></script>
     <script type="text/javascript" src="{!URLFOR($Resource.metadatajs)}"></script>
 
 
@@ -107,7 +107,7 @@ For example, [JSZip](http://stuartk.com/jszip/) or [zip.js](http://gildas-lormea
     }
     var req, result;
     req = new sforce.RetrieveRequest();
-    req.apiVersion = "26.0";
+    req.apiVersion = "27.0";
     req.singlePackage = false;
     req.unpackaged = {
         types: [{name: "ApexPage", members:["spec"]}]
@@ -122,7 +122,7 @@ For example, [JSZip](http://stuartk.com/jszip/) or [zip.js](http://gildas-lormea
     console.log(zip.file("unpackaged/pages/MyPage.page").asText());
 ###### Unzip retrieve result with [zip.js](http://gildas-lormeau.github.com/zip.js/)
     zip.useWebWorkers = false;
-    
+
 
     function getEntries(data64URI, onend) {
         zip.createReader(new zip.Data64URIReader(data64URI), function (reader) {
@@ -182,8 +182,8 @@ For example, [JSZip](http://stuartk.com/jszip/) or [zip.js](http://gildas-lormea
     }));
 ###### Zip deploy request with [zip.js](http://gildas-lormeau.github.com/zip.js/)
     zip.useWebWorkers = false;
-    
-    
+
+
     var writer;
     function onCreateWriterEnd(w) {
         writer = w;
