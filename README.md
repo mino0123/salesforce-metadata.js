@@ -8,14 +8,14 @@ salesforce-metadata.js is a library for accessing Salesforce Metadata API from a
 
 ### dependency
 Salesforce.com AJAX Connector  (AJAX Toolkit)
-[https://login.salesforce.com/soap/ajax/28.0/connection.js](https://login.salesforce.com/soap/ajax/28.0/connection.js)
+[https://login.salesforce.com/soap/ajax/29.0/connection.js](https://login.salesforce.com/soap/ajax/29.0/connection.js)
 
 
 ### usage
     <script type="text/javascript">
         __sfdcSessionId = "{!$API.Session_ID}";
     </script>
-    <script type="text/javascript" src="/soap/ajax/28.0/connection.js"></script>
+    <script type="text/javascript" src="/soap/ajax/29.0/connection.js"></script>
     <script type="text/javascript" src="{!URLFOR($Resource.metadatajs)}"></script>
 
 
@@ -107,7 +107,7 @@ For example, [JSZip](http://stuartk.com/jszip/) or [zip.js](http://gildas-lormea
     }
     var req, result;
     req = new sforce.RetrieveRequest();
-    req.apiVersion = "28.0";
+    req.apiVersion = "29.0";
     req.singlePackage = false;
     req.unpackaged = {
         types: [{name: "ApexPage", members:["spec"]}]
