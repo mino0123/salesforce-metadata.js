@@ -84,8 +84,10 @@ https://github.com/mino0123/salesforce-metadata.js/LICENSE
     };
 
     sforce.MetadataConnection.prototype.checkDeployStatus = function (asyncId, callback) {
-        var arg = new sforce.internal.Parameter("asyncProcessId", asyncId, false);
-        return this._invoke("checkDeployStatus", [arg], false, callback);
+        var args = [];
+        args.push(new sforce.internal.Parameter("asyncProcessId", asyncId, false));
+        args.push(new sforce.internal.Parameter("includeDetails", true, false));
+        return this._invoke("checkDeployStatus", args, false, callback);
     };
 
     sforce.MetadataConnection.prototype.startEnvelope = function (w) {
